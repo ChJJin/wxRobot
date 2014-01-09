@@ -10,7 +10,6 @@
 		"coffee-script": "~1.6.3",
 		"sha1": "1.0.1",
 		"xml2js": "*",
-		"lodash": "*",
-		"sugar": "*"
+		"lodash": "*"
 	}
 }
