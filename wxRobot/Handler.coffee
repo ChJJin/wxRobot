@@ -65,3 +65,5 @@ getBaseInfo = (data)->
 		ToUserName: data.FromUserName
 		FromUserName: data.ToUserName
 		CreateTime: new Date().getTime()
+
+module.exports = Handler
