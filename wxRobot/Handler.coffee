@@ -29,22 +29,22 @@ class Handler
 		msg = compiled['voice'] info
 		@reply msg
 
-	sendVideo: (mediaId, title, description)->
+	sendVideo: (option)->
 		info = _.assign getBaseInfo(@req.data), {
-			MediaId: mediaId
-			Title: title
-			Description: description
+			MediaId: option.mediaId ? option.MediaId
+			Title: option.title ? option.Title
+			Description: option.description ? option.Description
 		}
 		msg = compiled['video'] info
 		@reply msg
 
-	sendMusic: (musicUrl, HQmusicUrl, thumbMediaId, title, description)->
+	sendMusic: (option)->
 		info = _.assign getBaseInfo(@req.data), {
-			MusicUrl: musicUrl
-			HQMusicUrl: HQmusicUrl
-			ThumbMediaId: thumbMediaId
-			Title: title
-			Description: description
+			MusicUrl: option.musicUrl ? option.MusicUrl
+			HQMusicUrl: option.HQmusicUrl ? option.HQMusicUrl
+			ThumbMediaId: option.thumbMediaId ? option.ThumbMediaId
+			Title: option.title ? option.Title
+			Description: option.description ? option.Description
 		}
 		msg = compiled['music'] info
 		@reply msg
@@ -61,7 +61,7 @@ class Handler
 		@res.end msg
 
 getBaseInfo = (data)->
-	info = 
+	info =
 		ToUserName: data.FromUserName
 		FromUserName: data.ToUserName
 		CreateTime: new Date().getTime()

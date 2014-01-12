@@ -1,15 +1,27 @@
 {
-	"name": "application-name",
+	"name": "wxRobot",
 	"version": "0.0.1",
-	"private": true,
-	"scripts": {
-		"start": "node app.js"
-	},
+	"description": "API of wechat for nodejs",
+	"keywords": ["wechat", "weixin", "微信"],
+	"homepage": "https://github.com/ChJJin/wxRobot",
+	"repository": {
+        "type": "git",
+        "url" : "git://github.com/ChJJin/wxRobot.git"
+    },
+    "main": "",
 	"dependencies": {
 		"express": "3.3.4",
 		"coffee-script": "~1.6.3",
 		"sha1": "1.0.1",
 		"xml2js": "*",
 		"lodash": "*"
-	}
+	},
+	"author": "JJin Chan",
+	"license": "MIT",
+	"readmeFilename": "README.md",
+	"engines": {
+		"node": "*"
+	},
+	"scripts": {
+	},
 }
