@@ -1,5 +1,5 @@
 CONFIG = require './config'
-wxRobot = require './wxRobot/wxRobot'
+wxRobot = require '../wxRobot/wxRobot'
 
 myRobot = new wxRobot CONFIG
 
