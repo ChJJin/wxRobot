@@ -23,5 +23,6 @@
 		"node": "*"
 	},
 	"scripts": {
-	},
+		"test": "node test/app.js"
+	}
 }
