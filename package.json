@@ -1,28 +1,36 @@
 {
-	"name": "wxRobot",
-	"version": "0.0.1",
-	"description": "API of wechat for nodejs",
-	"keywords": ["wechat", "weixin", "微信"],
-	"homepage": "https://github.com/ChJJin/wxRobot",
-	"repository": {
-        "type": "git",
-        "url" : "git://github.com/ChJJin/wxRobot.git"
-    },
-    "main": "",
-	"dependencies": {
-		"express": "3.3.4",
-		"coffee-script": "~1.6.3",
-		"sha1": "1.0.1",
-		"xml2js": "*",
-		"lodash": "*"
-	},
-	"author": "JJin Chan",
-	"license": "MIT",
-	"readmeFilename": "README.md",
-	"engines": {
-		"node": "*"
-	},
-	"scripts": {
-		"test": "node test/app.js"
-	}
+  "name": "wxRobot",
+  "version": "0.0.1",
+  "description": "API of wechat for nodejs",
+  "keywords": [
+    "wechat",
+    "weixin",
+    "微信"
+  ],
+  "homepage": "https://github.com/ChJJin/wxRobot",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/ChJJin/wxRobot.git"
+  },
+  "main": "index.js",
+  "dependencies": {
+    "express": "3.3.4",
+    "sha1": "1.0.1",
+    "xml2js": "0.2.6",
+    "lodash": "*"
+  },
+  "devDependencies": {
+    "coffee-script": "~1.6.3",
+    "grunt": "~0.4.2",
+    "grunt-contrib-coffee": "~0.8.0"
+  },
+  "author": "JJin Chan",
+  "license": "MIT",
+  "readmeFilename": "README.md",
+  "engines": {
+    "node": "*"
+  },
+  "scripts": {
+    "test": "node test/app.js"
+  }
 }
