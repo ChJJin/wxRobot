@@ -23,5 +23,5 @@ module.exports = ()->
 					err.status = 400
 					return next err
 
-				req.data = formatMessage json.xml
+				req.wxData = formatMessage json.xml
 				next()

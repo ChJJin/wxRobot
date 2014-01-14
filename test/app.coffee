@@ -1,10 +1,12 @@
 CONFIG = require './config'
-wxRobot = require '../wxRobot/wxRobot'
+wxRobot = require '../lib/wxRobot'
 
-myRobot = new wxRobot CONFIG
+app = new wxRobot CONFIG
 
-myRobot.onText (data, handler)->
+app.use wxRobot.cookieParser()
+app.use wxRobot.session {secret: "abc", cookie: {maxAge: 60000}}
+app.onText (data, handler)->
 	handler.sendText "hello #{data.FromUserName}"
 
-myRobot.run ()->
+app.run '/', ()->
 	console.log "Express server listening on port #{CONFIG.port}"

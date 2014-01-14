@@ -1,1 +1,1 @@
-module.exports = require('lib/wxRobot');
+module.exports = require('./lib/wxRobot');

@@ -4,6 +4,7 @@ _ = require 'lodash'
 Handler = require './Handler'
 checkSignature = require './middleware/checkSignature'
 xml2js = require './middleware/xml2js'
+session = require './middleware/session'
 
 msgTypes = ['text', 'image', 'voice', 'video', 'location', 'link']
 
@@ -16,15 +17,26 @@ class wxRobot
 		_.forEach msgTypes, (type)=>
 			@["on#{capitalize(type)}"] = (cb)=>
 				@_cb[type] = cb
+				@
 
-	run: (cb = ()->)->
-		app = express()
-		app.get '/', express.bodyParser(), checkSignature(@option.TOKEN)
-		app.post '/', xml2js(), (req, res, next)=>
-			dataType = req.data.MsgType
+		@app = express()
+		@app.use express.query()
+		@app.use xml2js()
+
+	use: (args...)->
+		@app.use.apply @app, args
+
+	run: (path = '/', cb = ()->)->
+		@app.get path, checkSignature(@option.TOKEN)
+		@app.post path, session(), (req, res, next)=>
+			dataType = req.wxData.MsgType
 			handler = new Handler req, res
-			@_cb[dataType]? req.data, handler
+			@_cb[dataType]? req.wxData, handler
 
-		http.createServer(app).listen @option.port, cb
+		http.createServer(@app).listen @option.port, cb
 
-module.exports = wxRobot
+exports = module.exports = wxRobot
+
+for key of express
+	Object.defineProperty exports, key,
+			Object.getOwnPropertyDescriptor(express, key)
